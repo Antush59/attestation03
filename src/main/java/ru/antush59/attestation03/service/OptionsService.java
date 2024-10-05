@@ -1,6 +1,5 @@
 package ru.antush59.attestation03.service;
 
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import ru.antush59.attestation03.dao.entity.OptionEntity;
 import ru.antush59.attestation03.dao.repository.OptionsRepository;
@@ -19,16 +18,14 @@ public class OptionsService {
     public List<Option> findAll() {
         Iterable<OptionEntity> optionEntities = optionsRepository.findAll();
         return StreamSupport.stream(optionEntities.spliterator(), false)
-                .map(entity -> new Option(entity.getId(),
-                        entity.getName(),
-                        entity.getPrice()))
+                .map(entity -> {
+                    Option option = new Option();
+                    option.setId(entity.getId());
+                    option.setName(entity.getName());
+                    option.setPrice(entity.getPrice());
+                    return option;
+                })
                 .collect(Collectors.toList());
-    }
-
-    public Option findByName(String name) {
-        return optionsRepository.findByName(name)
-                .map(entity -> new Option(entity.getId(), entity.getName(), entity.getPrice()))
-                .orElseThrow(() -> new EntityNotFoundException("Услуга не найдена!"));
     }
 
     public Option save(Option option) {

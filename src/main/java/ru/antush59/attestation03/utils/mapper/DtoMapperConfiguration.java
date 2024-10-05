@@ -45,7 +45,11 @@ public class DtoMapperConfiguration implements OrikaMapperFactoryConfigurer {
                                         Order model,
                                         MappingContext context) {
                         model.setOptions(requestDto.getOptions().stream()
-                                .map(name -> new Option(null, name, null))
+                                .map(name -> {
+                                    Option option = new Option();
+                                    option.setName(name);
+                                    return option;
+                                })
                                 .collect(Collectors.toList()));
                     }
                 })

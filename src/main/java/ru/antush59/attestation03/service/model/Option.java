@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 @ToString
 @Getter
 @Setter
-@AllArgsConstructor
 public class Option {
 
     private Long id;

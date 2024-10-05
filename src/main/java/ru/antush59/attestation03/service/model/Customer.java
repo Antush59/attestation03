@@ -8,7 +8,6 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
-@AllArgsConstructor
 public class Customer {
 
     private String login;

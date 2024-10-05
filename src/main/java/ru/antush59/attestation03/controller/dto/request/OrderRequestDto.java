@@ -1,11 +1,11 @@
 package ru.antush59.attestation03.controller.dto.request;
 
-import lombok.Value;
+import lombok.Data;
 
 import java.util.List;
 
-@Value
+@Data
 public class OrderRequestDto {
-    String customerLogin;
-    List<String> options;
+    private String customerLogin;
+    private List<String> options;
 }

@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class OrderEntity {
             cascade = {CascadeType.MERGE})
     @JoinColumn(name = "customer_login")
     private CustomerEntity customer;
+    @CreationTimestamp
     private OffsetDateTime creationTime;
 
     @ManyToMany(mappedBy = "orders",
