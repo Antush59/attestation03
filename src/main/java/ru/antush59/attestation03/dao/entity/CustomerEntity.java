@@ -5,12 +5,14 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.SQLDelete;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "customers")
+@SQLDelete(sql = "UPDATE tires.customers SET deleted = true WHERE login=?")
 @EqualsAndHashCode
 @ToString
 @Getter
@@ -26,8 +28,8 @@ public class CustomerEntity {
     @OneToMany(
             mappedBy = "customer",
             fetch = FetchType.EAGER,
-            cascade = {CascadeType.PERSIST})
+            cascade = {CascadeType.MERGE})
     @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private Set<OrderEntity> orders = new HashSet<>();
+    private boolean deleted;
 }

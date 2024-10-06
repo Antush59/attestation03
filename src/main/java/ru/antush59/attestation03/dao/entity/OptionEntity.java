@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.SQLDelete;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "options")
+@SQLDelete(sql = "UPDATE tires.options SET deleted = true WHERE id=?")
 @EqualsAndHashCode
 @ToString
 @Getter
@@ -22,15 +24,14 @@ public class OptionEntity {
     private Long id;
     private String name;
     private BigDecimal price;
-
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.REMOVE})
     @JoinTable(
             name = "order_option",
             joinColumns = {@JoinColumn(name = "option_id")},
             inverseJoinColumns = {@JoinColumn(name = "order_id")}
     )
-    @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private List<OrderEntity> orders = new ArrayList<>();
-
+    private boolean deleted;
 }

@@ -15,30 +15,30 @@ import ru.antush59.attestation03.service.model.Order;
 @Configuration
 public class EntityMapperConfiguration implements OrikaMapperFactoryConfigurer {
 
-  @Override
-  public void configure(MapperFactory mapperFactory) {
-    mapperFactory.classMap(Option.class, OptionEntity.class)
-        .byDefault()
-        .register();
+    @Override
+    public void configure(MapperFactory mapperFactory) {
+        mapperFactory.classMap(Option.class, OptionEntity.class)
+                .byDefault()
+                .register();
 
-      mapperFactory.classMap(Customer.class, CustomerEntity.class)
-              .byDefault()
-              .register();
+        mapperFactory.classMap(Customer.class, CustomerEntity.class)
+                .byDefault()
+                .register();
 
-      mapperFactory.classMap(Order.class, OrderEntity.class)
-              .byDefault()
-              .register();
+        mapperFactory.classMap(Order.class, OrderEntity.class)
+                .byDefault()
+                .register();
 
-      mapperFactory.classMap(OrderEntity.class, Order.class)
-              .customize(new CustomMapper<>() {
-                  @Override
-                  public void mapAtoB(OrderEntity entity,
-                                      Order model,
-                                      MappingContext context) {
-                      model.setCustomerLogin(entity.getCustomer().getLogin());
-                  }
-              })
-              .byDefault()
-              .register();
-  }
+        mapperFactory.classMap(OrderEntity.class, Order.class)
+                .customize(new CustomMapper<>() {
+                    @Override
+                    public void mapAtoB(OrderEntity entity,
+                                        Order model,
+                                        MappingContext context) {
+                        model.setCustomerLogin(entity.getCustomer().getLogin());
+                    }
+                })
+                .byDefault()
+                .register();
+    }
 }

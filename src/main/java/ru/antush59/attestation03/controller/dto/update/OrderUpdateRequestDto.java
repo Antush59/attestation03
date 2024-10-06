@@ -1,4 +1,4 @@
-package ru.antush59.attestation03.controller.dto.response;
+package ru.antush59.attestation03.controller.dto.update;
 
 import lombok.Value;
 
@@ -6,9 +6,9 @@ import java.time.OffsetDateTime;
 import java.util.List;
 
 @Value
-public class OrderResponseDto {
+public class OrderUpdateRequestDto {
     Long id;
     String customerLogin;
     OffsetDateTime creationTime;
-    List<OptionResponseDto> options;
+    List<OptionUpdateRequestDto> options;
 }
