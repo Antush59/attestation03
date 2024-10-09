@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
+import java.util.Set;
 
 @EqualsAndHashCode
 @ToString
@@ -18,5 +18,5 @@ public class Customer {
     private String phoneNumber;
     private String carModel;
     private String dimensionOfTires;
-    private List<Order> orders;
+    private Set<Order> orders;
 }

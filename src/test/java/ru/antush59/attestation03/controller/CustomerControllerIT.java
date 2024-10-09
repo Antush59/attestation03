@@ -26,8 +26,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class CustomerControllerIT extends BaseIT {
-    @Autowired
-    private CustomerController customerController;
+    //    @Autowired
+//    private CustomerController customerController;
     @Autowired
     private CustomersRepository customersRepository;
 
@@ -61,7 +61,7 @@ class CustomerControllerIT extends BaseIT {
                 .returns("5553535", CustomerResponseDto::getPhoneNumber)
                 .returns("Ford", CustomerResponseDto::getCarModel)
                 .returns("180/65/r15", CustomerResponseDto::getDimensionOfTires)
-                .returns(Collections.emptyList(), CustomerResponseDto::getOrders);
+                .returns(Collections.emptySet(), CustomerResponseDto::getOrders);
     }
 
     @Test
@@ -94,7 +94,7 @@ class CustomerControllerIT extends BaseIT {
                 .returns("5212553535", CustomerResponseDto::getPhoneNumber)
                 .returns("The Falcon of the Millennium", CustomerResponseDto::getCarModel)
                 .returns("1200/615/r115", CustomerResponseDto::getDimensionOfTires)
-                .returns(Collections.emptyList(), CustomerResponseDto::getOrders);
+                .returns(Collections.emptySet(), CustomerResponseDto::getOrders);
     }
 
     @Test
@@ -165,7 +165,7 @@ class CustomerControllerIT extends BaseIT {
                 .returns(Collections.emptySet(), CustomerEntity::getOrders);
 
         CustomerUpdateRequestDto customerRequestDto = new CustomerUpdateRequestDto("sky", "Luck Waider",
-                "5212553535", "Corabl", "123873141/231", Collections.emptyList());
+                "5212553535", "Corabl", "123873141/231", Collections.emptySet());
 
         String requestBody = toJson(customerRequestDto);
         mockMvc.perform(put("/customers")

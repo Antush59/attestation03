@@ -2,7 +2,7 @@ package ru.antush59.attestation03.controller.dto.update;
 
 import lombok.Value;
 
-import java.util.List;
+import java.util.Set;
 
 @Value
 public class CustomerUpdateRequestDto {
@@ -11,5 +11,5 @@ public class CustomerUpdateRequestDto {
     String phoneNumber;
     String carModel;
     String dimensionOfTires;
-    List<OrderUpdateRequestDto> orders;
+    Set<OrderUpdateRequestDto> orders;
 }

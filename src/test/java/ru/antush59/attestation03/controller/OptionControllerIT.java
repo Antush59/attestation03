@@ -7,18 +7,13 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.jdbc.Sql;
 import ru.antush59.attestation03.BaseIT;
-import ru.antush59.attestation03.controller.dto.request.CustomerRequestDto;
 import ru.antush59.attestation03.controller.dto.request.OptionRequestDto;
-import ru.antush59.attestation03.controller.dto.response.CustomerResponseDto;
 import ru.antush59.attestation03.controller.dto.response.OptionResponseDto;
-import ru.antush59.attestation03.controller.dto.update.CustomerUpdateRequestDto;
 import ru.antush59.attestation03.controller.dto.update.OptionUpdateRequestDto;
-import ru.antush59.attestation03.dao.entity.CustomerEntity;
 import ru.antush59.attestation03.dao.entity.OptionEntity;
 import ru.antush59.attestation03.dao.repository.OptionsRepository;
 
 import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,8 +26,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class OptionControllerIT extends BaseIT {
-    @Autowired
-    private OptionsController optionsController;
+//    @Autowired
+//    private OptionsController optionsController;
 
     @Autowired
     private OptionsRepository optionsRepository;
@@ -148,10 +143,10 @@ public class OptionControllerIT extends BaseIT {
                 .isPresent()
                 .get()
                 .returns("option3", OptionEntity::getName)
-                .returns( new BigDecimal("348.10"), OptionEntity::getPrice);
+                .returns(new BigDecimal("348.10"), OptionEntity::getPrice);
 
-        OptionUpdateRequestDto optionUpdateRequestDto = new OptionUpdateRequestDto( 2L,"option3",
-                new BigDecimal("4386.35")) ;
+        OptionUpdateRequestDto optionUpdateRequestDto = new OptionUpdateRequestDto(2L, "option3",
+                new BigDecimal("4386.35"));
 
         String requestBody = toJson(optionUpdateRequestDto);
         mockMvc.perform(put("/options")
