@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: attestation03
+  jpa:
+    show-sql: true
+
+  flyway:
+    user: postgres
+    password: postgres
+    default-schema: tires
+    url: jdbc:postgresql://localhost:5432/tires_db
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/tires_db?currentSchema=tires
+    username: postgres
+    password: postgres
