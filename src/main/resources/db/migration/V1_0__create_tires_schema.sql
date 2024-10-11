@@ -1,3 +1,5 @@
+CREATE SCHEMA IF NOT EXISTS tires;
+
 CREATE TABLE IF NOT EXISTS tires.options
 (
     id    bigserial PRIMARY KEY,
