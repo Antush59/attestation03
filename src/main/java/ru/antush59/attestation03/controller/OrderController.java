@@ -19,7 +19,7 @@ import ru.antush59.attestation03.service.model.Order;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Tag(name = "Заказы", description = "Контроллер для CRUD операций для работы с заказами")
+@Tag(name = "Заказы", description = "Контроллер CRUD операций для работы с заказами")
 @RestController
 @RequestMapping("/orders")
 @RequiredArgsConstructor

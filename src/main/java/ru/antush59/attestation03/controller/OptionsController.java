@@ -19,7 +19,7 @@ import ru.antush59.attestation03.service.model.Option;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Tag(name = "Услуги", description = "Контроллер для CRUD операций для работы с услугами")
+@Tag(name = "Услуги", description = "Контроллер CRUD операций для работы с услугами")
 @RestController
 @RequestMapping("/options")
 @RequiredArgsConstructor

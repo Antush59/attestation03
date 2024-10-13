@@ -1,0 +1,13 @@
+tires-properties:
+  datasource:
+    database: tires_db
+    username: postgres
+    password: postgres
+    schema: tires
+    driver-class-name: org.postgresql.Driver
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    physical-naming-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    ddl-auto: create
+spring:
+  flyway:
+    enabled: false

@@ -19,7 +19,7 @@ import ru.antush59.attestation03.service.model.Customer;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Tag(name = "Клиенты", description = "Контроллер для CRUD операций с клиентами")
+@Tag(name = "Клиенты", description = "Контроллер CRUD операций с клиентами")
 @RestController
 @RequestMapping("/customers")
 @RequiredArgsConstructor
