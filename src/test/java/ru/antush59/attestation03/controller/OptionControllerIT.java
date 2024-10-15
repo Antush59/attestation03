@@ -26,8 +26,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 public class OptionControllerIT extends BaseIT {
-//    @Autowired
-//    private OptionsController optionsController;
 
     @Autowired
     private OptionsRepository optionsRepository;

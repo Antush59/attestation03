@@ -26,8 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class CustomerControllerIT extends BaseIT {
-    //    @Autowired
-//    private CustomerController customerController;
+
     @Autowired
     private CustomersRepository customersRepository;
 
